@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import React  from 'react';
+// import { CounterApp } from './componentes/CounterApp';
+// import { Encabezado } from './componentes/Encabezado';
+// import { Modal } from './componentes/modal/Modal';
+// import NavBar from './componentes/barras_nav/NavBar';
 
-function App() {
-  const [count, setCount] = useState(0)
+// export const App = () => {
+//   return (
+//     <React.StrictMode>
+//       <NavBar />
+//       <Modal/>
+//       {/* {renderComponent()} */}
+//       <CounterApp/>
+//     </React.StrictMode>
+//   );
+// };
+
+import React, { useState } from 'react';
+import { CounterApp } from './componentes/CounterApp';
+// import { Encabezado } from './componentes/Encabezado';
+import { Login } from './componentes/Login';
+// import { Pokemon } from './componentes/Pokemon';
+import NavBar from './componentes/barras_nav/NavBar';
+import { Carrucel } from './componentes/carrucel/Carrucel';
+import CardComponent from './componentes/eliminar';
+
+export const App = () => {
+  const [currentComponent, setCurrentComponent] = useState('counter');
+
+  const renderComponent = () => {
+    if (currentComponent === 'login') {
+      return <Login onLoginButtonClick={() => setCurrentComponent('counter')} />;
+    } else if (currentComponent === 'counter') {
+      return <CounterApp onLoginButtonClick={() => setCurrentComponent('login')}/>;
+    }
+  };
+  
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <React.StrictMode>
+    {/* <div className="fondo-de-pantalla"> */}
+      {/* <Encabezado /> */}
 
-export default App
+      
+      <NavBar />
+      {/* <CardComponent/> */}
+      <div className='pading-top'></div>
+      {/* <Carrucel/> */}
+      {/* <Login/> */}
+      {renderComponent()}
+      {/* <CounterApp/> */}
+
+    {/* </div> */}
+    </React.StrictMode>
+  );
+};
