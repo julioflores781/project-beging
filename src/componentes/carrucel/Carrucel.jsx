@@ -54,8 +54,7 @@ export const Carrucel = () => {
                     </div>
                     <div className="carousel-inner">
                         <div className="carousel-item ">
-                            {/* <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" className="d-block w-100" alt="..."/> */}
-                            <div className="row row-cols-lg-auto g-4" id="contenedor">
+                            <div className="row row-cols-1 row-cols-md-4 g-2" id="contenedor">
                             {listaPokemon.map((pokemon, index) => (
                                 <ListaPokemon
                                 
@@ -70,7 +69,7 @@ export const Carrucel = () => {
                         </div>
                         </div>
                         <div className="carousel-item active">
-                        <div className="row row-cols-lg-auto g-4" id="contenedor">
+                        <div className="row row-cols-1 row-cols-md-4 g-2" id="contenedor">
                             {listaPokemon.map((pokemon, index) => (
                                 <ListaPokemon
                                     key={index}
@@ -82,12 +81,9 @@ export const Carrucel = () => {
                             />
                             ))}
                         </div>
-                            {/* <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg" className="d-block w-100" alt="..."/> */}
                         </div>
                         <div className="carousel-item">
-                            {/* <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg" className="d-block w-100" alt="..."/>
-                        </div> */}
-                        <div className="row row-cols-lg-auto g-4" id="contenedor">
+                        <div className="row row-cols-1 row-cols-md-4 g-2" id="contenedor">
                             {listaPokemon.map((pokemon, index) => (
                                 <ListaPokemon
                                     key={index}

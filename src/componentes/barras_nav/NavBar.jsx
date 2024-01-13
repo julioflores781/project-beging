@@ -1,55 +1,36 @@
-const NavBar = ({onLoginButtonClick}) => {
+import { Link } from "react-router-dom";
+
+
+const NavBar = () => {
+
+    const  handleChange = e=>{
+        console.log(e.target.value);
+    }
+
+    
+
     return (
         <>
-          {/* <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top ">
+          <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
                 <div className="container-fluid">
-                    <a className="navbar-brand " href="#" >Pokemon</a>
-                    <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Features</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link"  href="onLoginButtonClick">Log out</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-            </nav> */}
-          
-
-            <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Pokemon</a>
+                    <Link className="navbar-brand" to={'/pokemon'}>Pokemon</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
+                        <Link className="nav-link active" aria-current="page" to={'/login'}>Home</Link>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
+                        <Link className="nav-link" to={'/counter'}>Link</Link>
                         </li>
                         <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown
                         </a>
                         <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" href="#">Action</a></li>
+                            <li><Link className="dropdown-item" to={'/carrucel'}>Action</Link></li>
                             <li><a className="dropdown-item" href="#">Another action</a></li>
                             <li><hr className="dropdown-divider"/></li>
                             <li><a className="dropdown-item" href="#">Something else here</a></li>
@@ -60,7 +41,7 @@ const NavBar = ({onLoginButtonClick}) => {
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                        <input className="form-control me-2" type="search" onChange={handleChange} placeholder="Search" aria-label="Search"/>
                         <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
                     </div>

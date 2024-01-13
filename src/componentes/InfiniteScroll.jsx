@@ -24,4 +24,10 @@ export const InfiniteScroll = ({ onFetchData }) => {
     };
 
 
+
+    
+
+    
+    export default InfiniteScroll
+    
     

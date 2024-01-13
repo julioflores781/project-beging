@@ -1,76 +1,80 @@
-import { useEffect, useRef, useState } from "react"
-import { getPokemonByNombre, modoTitulo } from "./ConsultaApi"
-import { Modal } from "./modal/Modal";
+import {   useEffect, useRef, useState } from "react"
+import { getPokemonByNombre } from "./ConsultaApi";
+import PropTypes from 'prop-types'
+import { TarjetaPokemon } from "./TarjetaPokemon";
 
 
 export const Pokemon =  ({ nombre}) => {
+  const [bodyPokemon, setBodyPokemon] = useState()
   const cargaInicialRealizadaRef = useRef(false);
-  const [pokemon, setPokemon] = useState(null)
-  const [mostrar, setMostrar] = useState(true)
-  const [id, setId] = useState(1)
-  const [busqueda, setBusqueda] = useState('')
   
-  const fetchPokemon = async ()=>{
+  const fetchPokemon = async (nombre)=>{
     try {
-      const pokemonJson = await getPokemonByNombre(nombre);
-      setPokemon(pokemonJson)
-      console.log(pokemonJson);
-      console.log(pokemon);
+      const respuesta = await getPokemonByNombre(nombre);
+      if (respuesta!=null) {
+          setBodyPokemon(<TarjetaPokemon
+              id={respuesta.id}
+              nombre={respuesta.nombre}
+              img={respuesta.img}
+            />
+          )
+      }else{
+        throw  Error('No retorno dator getPokemonByNombre');
+      }
     } catch (error) {
       console.error(error);
     }
-  }
+  };
   
 
+  
   useEffect(() => {
-    console.log('pase por aqui ');
     const cargarDatosIniciales = async () => {
-      if (!cargaInicialRealizadaRef.current) {
-        fetchPokemon(nombre);
+      try {
+        
+        if (!cargaInicialRealizadaRef.current) {
+          fetchPokemon('bulbasaur');
+        }else{
+          setBodyPokemon(  (<h1> Prueba</h1> ))
+        }
         cargaInicialRealizadaRef.current = true;
+      } catch (error) {
+        console.error("Error: " + error);
       }
-    };
-    cargarDatosIniciales();
-  }, [1]);
-  
-  // fetchPokemon(nombre);
-  
+      }
+      cargarDatosIniciales();
+  }, [nombre]);
 
+  
+  
+  
   return (
-      <>
-            {/* <a className="btn btn-sm btn-outline-secondary " onClick={<Modal/>}>  Aceptar  </a>
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="contenedor">
-      
-      <div className="card " >
-        
-        <img  width="100%" height="100%" src={pokemon.img} />
-      
-        <div className="card-body prueba">
-          <h1 >{modoTitulo(pokemon.nombre)}</h1>
-          <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <div className="d-flex justify-content-between align-items-center">
-            <div className="btn-group">
-            </div>
-            <small className="text-muted">{pokemon.id}</small>
-            <a className="btn btn-sm btn-outline-secondary ">  View More  </a>
-  
-          </div>
-        </div>
-      </div>
-      
-
-    <div className="card ">
-      <img  width="100%" height="100%" src={pokemon.img} className="object-fit-cover border border-primary" alt={pokemon.img}/>
-      <div className="card-body bg-secondary text-white">
-        <h1 className="card-title">{modoTitulo(pokemon.nombre)}</h1>
-        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" className="btn btn-primary">Go somewhere</a>
-      </div>
+    <>
+    <div>
+    {( 
+          bodyPokemon
+        )}
     </div>
-    </div> */}
-
-        
-
-      </>
+    </>
     )
   }
+
+
+
+
+
+  
+
+  
+  
+  
+
+  
+
+  
+  Pokemon.propTypes = {
+  nombre: PropTypes.string.isRequired
+  }
+  
+  
+  

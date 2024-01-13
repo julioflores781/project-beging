@@ -2,14 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import {  ListaPokemon } from "./ListaPokemon";
 import { consultarApi, modoTitulo } from "./ConsultaApi";
 import { InfiniteScroll } from "./InfiniteScroll";
-import PropTypes from 'prop-types'
 
 
 
 
 
 
-export const CounterApp = ({ onLoginButtonClick }) => {
+export const CounterApp = () => {
   const cargaInicialRealizadaRef = useRef(false);
   const [itemsInicial, setItemsInicial] = useState(0);
   const [count] = useState(20);
@@ -33,9 +32,14 @@ export const CounterApp = ({ onLoginButtonClick }) => {
     
     useEffect(() => {
       const cargarDatosIniciales = async () => {
-        if (!cargaInicialRealizadaRef.current) {
-           fetchData(itemsInicial, count);
-          cargaInicialRealizadaRef.current = true;
+        try {
+          
+          if (!cargaInicialRealizadaRef.current) {
+            fetchData(itemsInicial, count);
+            cargaInicialRealizadaRef.current = true;
+          }
+        } catch (error) {
+          console.error("Error: " + error);
         }
       };
       cargarDatosIniciales();
@@ -48,10 +52,7 @@ export const CounterApp = ({ onLoginButtonClick }) => {
     
     return (
       <>
-     
-      <a className="btn btn-sm btn-outline-secondary " onClick={onLoginButtonClick}>  Back  </a>
-      {/* <Carrucel/> */}
-      <div className="row row-cols-lg-auto g-2" id="contenedor">
+      <div className="row row-cols-1 row-cols-md-4 g-2" id="contenedor">
         {listaPokemon.map((pokemon, index) => (
           <ListaPokemon
             key={index}
@@ -71,10 +72,5 @@ export const CounterApp = ({ onLoginButtonClick }) => {
 };
 
 
-
-
-CounterApp.propTypes = {
-onLoginButtonClick: PropTypes.string.isRequired,
-}
 
 
