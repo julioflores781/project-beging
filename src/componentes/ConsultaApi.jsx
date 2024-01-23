@@ -1,3 +1,5 @@
+const urlProductos = 'http://localhost:3001/productos'
+const urlPersonas = "http://localhost:8082/persona/";
 
 
 export const consultarApi = async (currentPage,itemsPerPage) => {
@@ -34,3 +36,27 @@ export const consultarApi = async (currentPage,itemsPerPage) => {
         return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
       });
     }
+
+
+    export const getSolicitud = async () => {
+      try {
+        const respuesta = await fetch(urlPersonas);
+          const { results } = await respuesta.json();        
+          return results;
+      } catch (error) {
+        console.error("Error al consultar la API de Solicitudes:", error);
+        throw error; 
+      }
+    };
+
+    export const getProductos = async () => {
+    try {
+        const respuesta = await fetch(urlProductos);
+          const { results } = await respuesta.json();     
+          console.log(results);   
+          return results;
+      } catch (error) {
+        console.error("Error al consultar la API de Productos:", error);
+        throw error; 
+      }
+    };

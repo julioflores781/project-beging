@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import PropTypes from 'prop-types'
 
 export const InfiniteScroll = ({ onFetchData }) => {
     const cantidadScroll = 0.0001 ;
@@ -25,9 +26,12 @@ export const InfiniteScroll = ({ onFetchData }) => {
 
 
 
-    
 
-    
-    export default InfiniteScroll
+
+InfiniteScroll.propTypes = {
+  onFetchData: PropTypes.func
+}
+
+export default InfiniteScroll
     
     

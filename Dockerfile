@@ -15,6 +15,7 @@ COPY . /app/
 
 # Exponer el puerto 3000 (puerto por defecto utilizado por Vite)
 EXPOSE 5173
+EXPOSE 3000
 
 # Comando para iniciar la aplicación Vite en modo desarrollo
 CMD ["npm", "run", "dev"]

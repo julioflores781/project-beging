@@ -1,7 +1,8 @@
 import {   useEffect, useRef, useState } from "react"
-import { getPokemonByNombre } from "./ConsultaApi";
+import { getPokemonByNombre, modoTitulo } from "./ConsultaApi";
 import PropTypes from 'prop-types'
 import { TarjetaPokemon } from "./TarjetaPokemon";
+import { Spinner } from "../loader/Spinner";
 
 
 export const Pokemon =  ({ nombre}) => {
@@ -14,7 +15,7 @@ export const Pokemon =  ({ nombre}) => {
       if (respuesta!=null) {
           setBodyPokemon(<TarjetaPokemon
               id={respuesta.id}
-              nombre={respuesta.nombre}
+              nombre={modoTitulo( respuesta.nombre)}
               img={respuesta.img}
             />
           )
@@ -32,11 +33,11 @@ export const Pokemon =  ({ nombre}) => {
     const cargarDatosIniciales = async () => {
       try {
         
-        if (!cargaInicialRealizadaRef.current) {
-          fetchPokemon('bulbasaur');
-        }else{
-          setBodyPokemon(  (<h1> Prueba</h1> ))
-        }
+        !cargaInicialRealizadaRef.current ?  fetchPokemon('bulbasaur')
+        : setBodyPokemon(  (<div className="position-absolute top-50 start-50">
+                                <Spinner />
+                            </div> ))
+        
         cargaInicialRealizadaRef.current = true;
       } catch (error) {
         console.error("Error: " + error);

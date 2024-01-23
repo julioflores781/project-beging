@@ -1,0 +1,95 @@
+
+   { "productos" :  [
+      {
+        "id": 1,
+        "name": "Pantalón Casual",
+        "description": "Pantalón casual de tela suave y cómoda, perfecto para cualquier ocasión.",
+        "photo": "https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU",
+        "price": 19.99,
+        "category": "Ropa",
+        "stock": 50
+      },
+      {
+        "id": 2,
+        "name": "Laptop Ultradelgada",
+        "description": "Laptop ultradelgada con potente rendimiento y diseño elegante, ideal para trabajar y estudiar.",
+        "photo": "https://fastly.picsum.photos/id/177/2515/1830.jpg?hmac=G8-2Q3-YPB2TreOK-4ofcmS-z5F6chIA0GHYAe5yzDY",
+        "price": 29.99,
+        "category": "Tecnología",
+        "stock": 30
+      },
+      {
+        "id": 3,
+        "name": "Juego de Cuchillos de Cocina",
+        "description": "Juego de cuchillos de cocina de alta calidad para facilitar tus tareas culinarias diarias.",
+        "photo": "https://fastly.picsum.photos/id/182/2896/1944.jpg?hmac=lzw4TC7qF2R3BEJu05d0M6rdglY57ugjugCP6XoiMbQ",
+        "price": 39.99,
+        "category": "Hogar",
+        "stock": 20
+      },
+      {
+        "id": 4,
+        "name": "Cámara Digital Profesional",
+        "description": "Cámara digital profesional con funciones avanzadas para capturar momentos inolvidables.",
+        "photo": "https://fastly.picsum.photos/id/157/5000/3914.jpg?hmac=A23PziOOpi_DIdiPRI30m9_1A8keOtMF3a6Vb-D7dRA",
+        "price": 49.99,
+        "category": "Tecnología",
+        "stock": 25
+      },
+      {
+        "id": 5,
+        "name": "Blusa Elegante",
+        "description": "Blusa elegante con un toque moderno, perfecta para ocasiones especiales o uso diario.",
+        "photo": "https://fastly.picsum.photos/id/182/2896/1944.jpg?hmac=lzw4TC7qF2R3BEJu05d0M6rdglY57ugjugCP6XoiMbQ",
+        "price": 59.99,
+        "category": "Ropa",
+        "stock": 15
+      },
+      {
+        "id": 6,
+        "name": "Robot Aspirador Inteligente",
+        "description": "Robot aspirador inteligente que hace la limpieza de tu hogar de manera automática y eficiente.",
+        "photo": "https://fastly.picsum.photos/id/177/2515/1830.jpg?hmac=G8-2Q3-YPB2TreOK-4ofcmS-z5F6chIA0GHYAe5yzDY",
+        "price": 69.99,
+        "category": "Hogar",
+        "stock": 40
+      },
+      {
+        "id": 7,
+        "name": "Zapatillas Deportivas",
+        "description": "Zapatillas deportivas diseñadas para brindar comodidad y estilo durante tus actividades físicas.",
+        "photo": "https://fastly.picsum.photos/id/182/2896/1944.jpg?hmac=lzw4TC7qF2R3BEJu05d0M6rdglY57ugjugCP6XoiMbQ",
+        "price": 79.99,
+        "category": "Ropa",
+        "stock": 10
+      },
+      {
+        "id": 8,
+        "name": "Altavoces Bluetooth Potentes",
+        "description": "Altavoces Bluetooth potentes con sonido envolvente para disfrutar de tu música favorita.",
+        "photo": "https://fastly.picsum.photos/id/157/5000/3914.jpg?hmac=A23PziOOpi_DIdiPRI30m9_1A8keOtMF3a6Vb-D7dRA",
+        "price": 89.99,
+        "category": "Tecnología",
+        "stock": 5
+      },
+      {
+        "id": 9,
+        "name": "Juego de Sábanas de Lujo",
+        "description": "Juego de sábanas de lujo con tejido suave y elegante para un descanso reparador.",
+        "photo": "https://fastly.picsum.photos/id/177/2515/1830.jpg?hmac=G8-2Q3-YPB2TreOK-4ofcmS-z5F6chIA0GHYAe5yzDY",
+        "price": 99.99,
+        "category": "Hogar",
+        "stock": 18
+      },
+      {
+        "id": 10,
+        "name": "Smartphone de Última Generación",
+        "description": "Smartphone de última generación con características innovadoras y rendimiento excepcional.",
+        "photo": "https://fastly.picsum.photos/id/177/2515/1830.jpg?hmac=G8-2Q3-YPB2TreOK-4ofcmS-z5F6chIA0GHYAe5yzDY",
+        "price": 109.99,
+        "category": "Tecnología",
+        "stock": 8
+      }
+    ]
+  
+   }

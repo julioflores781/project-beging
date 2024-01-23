@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const  Login = () => {
 
-    const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -27,11 +27,8 @@ export const  Login = () => {
     
   return (
     <>
-    <div className="row pading-top" >
-    <div className="col-md-5"></div>
-    <div className="col-md-3 ">
-    
-         <div className="form-container">
+    <div className="d-flex justify-content-center">
+         <div className="form-container  ">
             <p className="title">Welcome back</p>
             <form className="form">
             <input type="email" className="input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
@@ -42,7 +39,7 @@ export const  Login = () => {
             <button className="form-btn" onClick={handleLoginClick}>Log in</button>
             </form>
             <p className="sign-up-label">
-                Don't have an account?<span className="sign-up-link">Sign up</span>
+                Dont have an account?<span className="sign-up-link">Sign up</span>
             </p>
             <div className="buttons-container">
                 <div className="apple-login-button">
@@ -67,9 +64,7 @@ export const  Login = () => {
                 </div>
             </div>
         </div>
-        </div>
-        <div className="col-md-5 "></div>
-        </div>
+      </div>
     </>
   );
 };
