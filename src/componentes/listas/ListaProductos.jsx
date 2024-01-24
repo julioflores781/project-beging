@@ -9,7 +9,7 @@ function ListaProductos() {
   const { search, listaProducto,cart,setCart } = useContext(counterContext);
   const [counters, setCounters] = useState([]);
   const [lista, setLista] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, ] = useState(false);
   const { categoryId } = useParams()
 
 

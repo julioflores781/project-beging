@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
-import  { useEffect, useState } from 'react'
+
+import  {  useState } from 'react'
 import {counterContext} from './counterContext'
-import { Productos } from '../componentes/dataEjemplo/producto';
-import { useParams } from 'react-router-dom';
+// import { Productos } from '../componentes/dataEjemplo/Producto.jsx'; 
+import {Productos} from '../componentes/dataEjemplo/Producto'
 
 export const StateCompo = ({ children }) => {
 
@@ -65,6 +65,12 @@ export const StateCompo = ({ children }) => {
             search,
             listaProducto,
             cart, 
+            setListaProducto,
+            aumentarCount,
+            disminuirCount,
+            counters,
+            loading, 
+            setLoading,
     }}
     >
       {children}
