@@ -12,7 +12,7 @@ permissions:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    environmet:
+    environment:
       name: ${{github.ref_name}}
       url: ${{steps.deploy.outputs.vm_url}}
     
