@@ -1,29 +1,50 @@
-name: CD
+name: CD Pipeline
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflow: ["CI Pipeline" ]
+    types:
+    - completed  
+  
+jobs: 
+  build:
+    run-on: self-hosted
 
-permissions:
-  contents: read
-
-jobs:
-  docker:
-    runs-on: ubuntu-latest
-    environment:
-      name: ${{github.ref_name}}
-      url: ${{steps.deploy.outputs.vm_url}}
-    
     steps:
-    - id: deploy
-      name: Deploy
-      uses: bitovi/github-actions-deploy-docker-to-ec2@v0.4.2
-      with:
-        role-session-name: awssyncsession
-        role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
-        aws-region: ${{ secrets.AWS_REGION }}
+    - name: Pull Docker image
+      run: sudo docker pull julioflores781/pruebagitha:latest
+    - name: Delete Old docker container
+      run: sudo docker rm -f e-comerce-container || true
+    - name: Run Docker Container
+      run: docker run -d -p 8080:5173 -p 3001:3000 -name e-comerce-container julioflores781/pruebagitha
+      env:
+        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+    - name: Build the Docker image
+      run: docker build -t julioflores781/pruebagitha .
+    - name: Push to Dockerhub
+      run: docker push julioflores781/pruebagitha:latest
+
+# permissions:
+#   contents: read
+
+# jobs:
+#   docker:
+#     runs-on: ubuntu-latest
+#     environment:
+#       name: ${{github.ref_name}}
+#       url: ${{steps.deploy.outputs.vm_url}}
+    
+#     steps:
+#     - id: deploy
+#       name: Deploy
+#       uses: bitovi/github-actions-deploy-docker-to-ec2@v0.4.2
+#       with:
+#         role-session-name: awssyncsession
+#         role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
+#         aws-region: ${{ secrets.AWS_REGION }}
 
     # steps:
     #   -
