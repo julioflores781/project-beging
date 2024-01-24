@@ -26,4 +26,4 @@ jobs:
 
 
     - name: sync bucket
-      run: aws s3 sync ./src/ s3://github-action-julioflores781 --delete
+      run: aws s3 sync ./src/ s3://github-action-julioflores781 --acl public-read --delete
