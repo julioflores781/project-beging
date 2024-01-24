@@ -1,12 +1,13 @@
 name: CD
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
 
 permissions:
-  contents: read      
+  contents: read
 
 jobs:
   docker:
@@ -19,7 +20,7 @@ jobs:
     - id: deploy
       name: Deploy
       uses: julioflores781/github-actions-deploy-docker-to-ec2@v0.4.2
-        with:
+      with:
         role-session-name: awssyncsession
         role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
         aws-region: ${{ secrets.AWS_REGION }}
