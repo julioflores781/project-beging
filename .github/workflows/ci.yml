@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - main
-name: CI
 jobs:
   docker:
     runs-on: ubuntu-latest
