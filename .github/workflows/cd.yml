@@ -8,7 +8,7 @@ on:
   
 jobs: 
   build:
-    run-on: self-hosted
+    runs-on: self-hosted
 
     steps:
     - name: Pull Docker image
@@ -17,15 +17,15 @@ jobs:
       run: sudo docker rm -f e-comerce-container || true
     - name: Run Docker Container
       run: docker run -d -p 8080:5173 -p 3001:3000 -name e-comerce-container julioflores781/pruebagitha
-      env:
-        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    #   env:
+    #     DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+    #     DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+    #   run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-    - name: Build the Docker image
-      run: docker build -t julioflores781/pruebagitha .
-    - name: Push to Dockerhub
-      run: docker push julioflores781/pruebagitha:latest
+    # - name: Build the Docker image
+    #   run: docker build -t julioflores781/pruebagitha .
+    # - name: Push to Dockerhub
+    #   run: docker push julioflores781/pruebagitha:latest
 
 # permissions:
 #   contents: read
