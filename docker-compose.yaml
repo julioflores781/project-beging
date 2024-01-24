@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: e-comerce
+    build: .
+    restart: always 
+    ports:
+      - "3001:3000"
+      - "3000:5173"
+    
+    volumes:
+      - .:/app
+      - ./app/node_modules
+    
