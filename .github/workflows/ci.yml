@@ -3,7 +3,8 @@ name: CI Pipeline
 on:
   push:
     branches:
-    - main
+    - master
+    # - main
 jobs:
   docker:
     runs-on: ubuntu-latest

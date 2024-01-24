@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types'
 import  {  useState } from 'react'
 import {counterContext} from './counterContext'
 // import { Productos } from '../componentes/dataEjemplo/Producto.jsx'; 
@@ -79,3 +79,11 @@ export const StateCompo = ({ children }) => {
 }
 
 
+
+
+
+
+
+StateCompo.propTypes = {
+  children: PropTypes.object
+}
