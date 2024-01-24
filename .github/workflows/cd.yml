@@ -19,7 +19,7 @@ jobs:
     steps:
     - id: deploy
       name: Deploy
-      uses: julioflores781/github-actions-deploy-docker-to-ec2@v0.4.2
+      uses: bitovi/github-actions-deploy-docker-to-ec2@v0.4.2
       with:
         role-session-name: awssyncsession
         role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
