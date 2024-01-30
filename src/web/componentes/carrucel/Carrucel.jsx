@@ -1,18 +1,16 @@
-
 import PropTypes from 'prop-types'
-export const Carrucel = ({photos}) => {
- 
+export const Carrucel = ({ photos, id }) => {
+
 
   return (
     <>
-      <div>
-        <div id="carouselExampleIndicators" className="carousel slide">
+        <div id={`carouselExampleIndicators-${id}`} className="carousel slide">
           <div className="carousel-indicators">
-            {photos.photo.map((photo, index) => (
+            {photos.map((photo, index) => (
               <button
                 key={index}
                 type="button"
-                data-bs-target="#carouselExampleIndicators"
+                data-bs-target={`#carouselExampleIndicators-${id}`}
                 data-bs-slide-to={index}
                 className={index === 0 ? "active" : ""}
                 aria-current={index === 0}
@@ -21,43 +19,39 @@ export const Carrucel = ({photos}) => {
             ))}
           </div>
           <div className="carousel-inner">
-            {photos.photo.map((photo, index) => (
+            {photos.map((photo, index) => (
               <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
-                <img  width="250px" src={photo.src} alt={photo.src} />
+                <img width="250px" src={photo.src} alt={photo.src} />
               </div>
             ))}
           </div>
           <button
             className="carousel-control-prev"
             type="button"
-            data-bs-target="#carouselExampleIndicators"
+            data-bs-target={`#carouselExampleIndicators-${id}`}
             data-bs-slide="prev"
           >
-            <img src='../src/img/chevron-back-outline.svg'></img>
+            <img src='../src/web/img/chevron-back-outline.svg'></img>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
             className="carousel-control-next"
             type="button"
-            data-bs-target="#carouselExampleIndicators"
+            data-bs-target={`#carouselExampleIndicators-${id}`}
             data-bs-slide="next"
           >
-            <img src='../src/img/chevron-forward-outline.svg'></img>
+            <img src='../src/web/img/chevron-forward-outline.svg'></img>
 
             <span className="visually-hidden">Next</span>
           </button>
         </div>
-      </div>
     </>
   );
 }
 
- 
-
-
-
 Carrucel.propTypes = {
-  photos: PropTypes.object.isRequired
+  photos: PropTypes.array.isRequired,
+  id: PropTypes.number.isRequired
 }
 
 

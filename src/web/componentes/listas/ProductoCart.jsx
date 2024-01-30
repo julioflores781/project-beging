@@ -1,5 +1,4 @@
 
-import { CiShoppingCart } from "react-icons/ci";
 import PropTypes from 'prop-types'
 import { Carrucel } from "../carrucel/Carrucel";
 
@@ -11,20 +10,19 @@ export const  ProductoCart = ({id,photos,name, description,price,total}) => {
         <div  className="card mb-3" key={id} >
             <div className="row g-0">
                 <div  className="col-md-3 text-center">
-                <Carrucel  photos={photos}/>
+                <Carrucel  photos={photos} id={id} />
                 </div>
                 <div className="col-md-9">
                     <div className="card-body">
                         <h5 className="card-title">{name}</h5>
                         <p className="card-text">{description}</p>
-                        <p className="card-text">{price}</p>
-                        <p className="card-text">{total}</p>
+                        <p className="card-text">Precio: {price}</p>
+                        <p className="card-text">Total: {total}</p>
                         <div className=" position-absolute bottom-0 ">
                             <p className="card-text text-success "><small >In stock</small></p>
                             <div className="btn-group  gap-1   col-12  ">
                                 <a  className="btn col-4 btn-outline-primary   ">-</a>
                                 <input className="form-control  " placeholder="0" readOnly value='0' />
-                                <a  className="btn col-4 btn-outline-primary "><CiShoppingCart/></a>
                                 <a  className="btn col-4 btn-outline-primary">+</a>
                             </div>
                                 <div><h1></h1></div>
@@ -48,7 +46,7 @@ ProductoCart.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    photos: PropTypes.object.isRequired,
+    photos: PropTypes.array .isRequired,
     description: PropTypes.string.isRequired,
     total: PropTypes.number.isRequired
 }

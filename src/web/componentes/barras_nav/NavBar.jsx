@@ -37,6 +37,7 @@ const NavBar = () => {
                             <li><Link className="dropdown-item" to={'/productos/Tecnología'}>Tecnología</Link></li>
                             <li><Link className="dropdown-item" to={'/productos/Hogar'}>Hogar</Link></li>
                             <li><Link className="dropdown-item" to={'/productos/Ropa'}>Ropa</Link></li>
+                            <li><Link className="dropdown-item" to={'/gridproducto'}>Producto</Link></li>
                             <li><hr className="dropdown-divider"/></li>
                             <li><Link className="dropdown-item" to={'/check'}>check</Link></li>
                         </ul>
