@@ -1,9 +1,12 @@
 
 import PropTypes from 'prop-types'
 import { Carrucel } from "../carrucel/Carrucel";
+import { useContext } from 'react';
+import { counterContext } from '../../context/counterContext';
 
-export const  ProductoCart = ({id,photos,name, description,price,total}) => {
+export const  ProductoCart = ({id,photos,name, description,price}) => {
     
+    const {counters, aumentarCount, disminuirCount} = useContext(counterContext);
 
   return (
     <>
@@ -17,13 +20,13 @@ export const  ProductoCart = ({id,photos,name, description,price,total}) => {
                         <h5 className="card-title">{name}</h5>
                         <p className="card-text">{description}</p>
                         <p className="card-text">Precio: {price}</p>
-                        <p className="card-text">Total: {total}</p>
+                        <p className="card-text">Total: {(counters[id]) ? price * counters[id] : 0}</p>
                         <div className=" position-absolute bottom-0 ">
                             <p className="card-text text-success "><small >In stock</small></p>
                             <div className="btn-group  gap-1   col-12  ">
-                                <a  className="btn col-4 btn-outline-primary   ">-</a>
-                                <input className="form-control  " placeholder="0" readOnly value='0' />
-                                <a  className="btn col-4 btn-outline-primary">+</a>
+                                <a  className="btn col-4 btn-outline-primary" onClick={() => disminuirCount(id)}>-</a>
+                                <input className="form-control  " placeholder="0" readOnly value={counters[id]} />
+                                <a  className="btn col-4 btn-outline-primary"  onClick={() => aumentarCount(id)} >+</a>
                             </div>
                                 <div><h1></h1></div>
                         </div>
