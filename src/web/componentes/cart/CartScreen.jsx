@@ -6,7 +6,7 @@ import { counterContext } from '../../context/counterContext';
 import { Spinner } from '../../loader/Spinner';
 
 export const  CartScreen = ()  => {
-  const {cart}= useContext(counterContext);
+  const {cart,totalCart}= useContext(counterContext);
   return (
     <>
       <div className='container'>
@@ -24,8 +24,10 @@ export const  CartScreen = ()  => {
                         description = {producto.description} 
                         price = {producto.price} 
                         total = {producto.total} 
+                        stock = {producto.stock}
                   />))
               }
+              <p className="card-text text-center"> Total del  carro: { parseFloat(totalCart).toFixed(2)}</p>
               </>
             : <div className='position-absolute top-50 start-50 translate-middle text-center'> Carro vacio <h1></h1>
               <Spinner/>

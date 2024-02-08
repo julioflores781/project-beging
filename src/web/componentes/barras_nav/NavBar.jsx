@@ -5,7 +5,7 @@ import { CiShoppingCart } from "react-icons/ci";
 
 
 const NavBar = () => {
-    const { setSearch } = useContext(counterContext);
+    const { setSearch, cart  } = useContext(counterContext);
 
     const  handleChange = e=>{
         setSearch(e.target.value);
@@ -43,13 +43,14 @@ const NavBar = () => {
                         </ul>
                         </li>
                         <li className="nav-item">
-                        <Link to={'/carro'}><CiShoppingCart/></Link>
+                        
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" onChange={handleChange} placeholder="Search" aria-label="Search"/>
-                        <button className="btn btn-outline-success" type="submit">Search</button>
+                        <a className="btn btn-primary" >Search</a>
                     </form>
+                        <Link to={'/carro'}><CiShoppingCart/><span>{(cart.length!=0) ? cart.length : 0}</span></Link>
                     </div>
                 </div>
             </nav>

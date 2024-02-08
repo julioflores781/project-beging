@@ -1,6 +1,5 @@
 
 import NavBar from './componentes/barras_nav/NavBar';
-import { Login } from './componentes/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CounterApp } from './componentes/CounterApp';
 import { Pokemon } from './componentes/Pokemon';
@@ -12,6 +11,7 @@ import { ListGroup } from './componentes/listas/listGroup';
 import AppDVE from './devextreme/App.jsx';
 import 'devextreme/dist/css/dx.light.css';
 import GridProductos from './componentes/grid/GridProductos.jsx';
+import { Login } from './componentes/login/Login.jsx';
 
 export const App = () => {
   return (
@@ -19,7 +19,7 @@ export const App = () => {
       <StateCompo>
         <BrowserRouter>
             <NavBar />
-            <div className='pading-top'></div>
+            <div className='pading-top'> </div>
             <Routes>
               <Route index element={<Login/>} /> 
               <Route path='/login' element={<Login/>} />

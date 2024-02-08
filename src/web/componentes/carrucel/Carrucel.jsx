@@ -4,8 +4,8 @@ export const Carrucel = ({ photos, id }) => {
 
   return (
     <>
-        <div id={`carouselExampleIndicators-${id}`} className="carousel slide">
-          <div className="carousel-indicators">
+        <div   id={`carouselExampleIndicators-${id}`} className="carousel slide">
+          <div className="carousel-indicators ">
             {photos.map((photo, index) => (
               <button
                 key={index}
@@ -21,7 +21,7 @@ export const Carrucel = ({ photos, id }) => {
           <div className="carousel-inner">
             {photos.map((photo, index) => (
               <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
-                <img width="250px" src={photo.src} alt={photo.src} />
+                <img  style={{ width: '350px', height: '350px', padding: '10px' }} src={photo.src} alt={photo.src} />
               </div>
             ))}
           </div>

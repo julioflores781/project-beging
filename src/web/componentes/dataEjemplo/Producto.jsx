@@ -17,7 +17,7 @@ export const Productos =  [
     price: 109.99,
     total: 0,
     category: "Tecnología",
-    stock: 8
+    stock: 10
   },
   {
   id: 2,

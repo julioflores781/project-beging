@@ -7,7 +7,7 @@ export function ListaPokemon({ url, nombre , descripcion ,puntoPoder,imagen}) {
       <div >
         <div className="card fondo-de-pantalla text-white" >
           
-          <img width="100%" height="100%" src={imagen} />
+          <img loading='lazy' width="100%" height="100%" src={imagen} />
         
           <div className="card-body pie-de-tarjeta">
             <h1 >{nombre}</h1>

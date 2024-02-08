@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import './login.css'
 
 export const  Login = () => {
 
@@ -27,7 +28,7 @@ export const  Login = () => {
     
   return (
     <>
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center pading-top">
          <div className="form-container  ">
             <p className="title">Welcome back</p>
             <form className="form">
